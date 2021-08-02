@@ -24,7 +24,7 @@
                 class="filter__item"
                 :data-value="region"
                 href="#"
-                @click.stop="setRegionFilter"
+                @click.prevent="setRegionFilter"
             >{{ region }}</a>
         </div>
     </div>
