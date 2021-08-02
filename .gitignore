@@ -29,3 +29,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Deployment script
+/deploy.sh
