@@ -56,6 +56,7 @@ export default {
     }
 
     &__description-list {
+        display: flow-root;
         margin: 0 1.5rem 3rem;
     }
 

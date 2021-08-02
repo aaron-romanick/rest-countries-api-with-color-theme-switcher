@@ -54,6 +54,8 @@ export default {
             increaseListLimit,
             requestAllCountries,
             resetListLimit,
+            setCurrentRegion,
+            setCurrentSearch,
         } = useStore()
         const {
             currentRegion,
@@ -65,6 +67,8 @@ export default {
         if(countries.value.length === 0) {
             requestAllCountries()
         }
+        setCurrentRegion(null)
+        setCurrentSearch('')
         
         const limitedCountries = computed(() => {
             return filteredByRegion.value
