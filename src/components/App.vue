@@ -257,5 +257,11 @@ main {
 .header__heading {
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-800);
+
+    @media only screen and (min-width: 768px) {
+        & {
+            font-size: var(--font-size-20);
+        }
+    }
 }
 </style>
