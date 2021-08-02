@@ -1,8 +1,5 @@
 node_modules
 /dist
-/design
-/style-guide.md
-/README-template.md
 
 # Avoid accidental Sketch file upload 
 *.sketch

@@ -1,6 +1,6 @@
 {
-  "name": "rest-countries-api-with-color-theme-switcher-master",
-  "version": "0.1.0",
+  "name": "rest-countries-api-with-color-theme-switcher",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vueuse/core": "^5.2.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0"
   },
