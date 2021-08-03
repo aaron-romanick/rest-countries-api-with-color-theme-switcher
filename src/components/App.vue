@@ -93,6 +93,7 @@ export default {
     --filter__button--background-color: var(--white);
     --filter__menu--background-color: var(--white);
     --filter__item--hover--background-color: var(--mercury);
+    --list__empty--color: var(--gray);
     --list__card--background-color: var(--white);
     --border-countries__link--background-color: var(--white);
     --border-countries__link--hover--background-color: var(--mercury);
@@ -160,6 +161,7 @@ html.html--dark-mode {
     --filter__button--background-color: var(--oxford-blue);
     --filter__menu--background-color: var(--oxford-blue);
     --filter__item--hover--background-color: var(--gray);
+    --list__empty--color: var(--alabaster);
     --list__card--background-color: var(--oxford-blue);
     --border-countries__link--background-color: var(--oxford-blue);
     --border-countries__link--hover--background-color: var(--gray);

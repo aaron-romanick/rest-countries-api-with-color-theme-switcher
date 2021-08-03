@@ -3,6 +3,12 @@
         aria-label="Country List"
         class="list"
     >
+        <p
+            v-if="countries.length === 0"
+            class="list__empty"
+        >
+            There are not countries that match these criteria.
+        </p>
         <Card
             v-for="(country, i) in countries"
             :key="i"
@@ -126,6 +132,12 @@ export default {
     gap: 3rem;
     justify-content: center;
     margin-bottom: 4.5rem;
+
+    &__empty {
+        color: var(--list__empty--color);
+        margin-top: 3rem;
+        text-align: center;
+    }
 
     &__sentinel {
         flex-basis: 100%;
