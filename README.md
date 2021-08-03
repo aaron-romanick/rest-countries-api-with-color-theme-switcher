@@ -34,7 +34,7 @@ Users should be able to:
 
 ### <a name="links"></a>Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/rest-countries-api-using-vue-3-composition-api-3tAb1MX1K](https://www.frontendmentor.io/solutions/rest-countries-api-using-vue-3-composition-api-3tAb1MX1K)
 - Live Site URL: [https://nisenihonjin.github.io/rest-countries-api-with-color-theme-switcher/](https://nisenihonjin.github.io/rest-countries-api-with-color-theme-switcher/)
 
 ## <a name="my-process"></a>My Process
