@@ -2,12 +2,12 @@
     <section
         aria-label="Country List"
         class="list"
-        role="region"
     >
         <Card
             v-for="(country, i) in countries"
             :key="i"
             :code="country.alpha3Code"
+            :ariaLabelledBy="`country-card-${i}`"
         >
             <img
                 alt="Columbian Flag"
@@ -15,7 +15,12 @@
                 :src="country.flag"
             >
             <section>
-                <h2 class="card__heading">{{ country.name }}</h2>
+                <h2
+                    class="card__heading"
+                    :id="`country-card-${i}`"
+                >
+                    {{ country.name }}
+                </h2>
                 <dl class="card__description-list">
                     <dt class="card__description-term">Population</dt>
                     <dd class="card__description-details">{{ formatNumber(country.population) }}</dd>

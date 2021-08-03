@@ -1,5 +1,8 @@
 <template>
-    <article class="list__card card">
+    <article
+        class="list__card card"
+        :aria-labelledby="ariaLabelledBy"
+    >
         <a
             class="link card__link"
             href="#"
@@ -16,6 +19,10 @@ import { useStore } from '@/store'
 export default {
     name: 'Card',
     props: {
+        ariaLabelledBy: {
+            type: String,
+            required: true,
+        },
         code: {
             type: String,
             required: true,

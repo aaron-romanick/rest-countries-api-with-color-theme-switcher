@@ -4,6 +4,7 @@
         <input
             class="search__input"
             placeholder="Search for a country&hellip;"
+            role="search"
             type="text"
             @input.stop="search"
         />
