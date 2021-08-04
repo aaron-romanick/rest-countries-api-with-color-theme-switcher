@@ -1,7 +1,7 @@
 <template>
     <section class="details">
         <slot></slot>
-        <BorderCountriesList>
+        <BorderCountriesList v-if="borders.length > 0">
             <BorderCountryLink
                 v-for="(border, i) in borders"
                 :key="i"
