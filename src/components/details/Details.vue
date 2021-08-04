@@ -53,6 +53,7 @@ export default {
     &__image {
         grid-area: image;
         margin-bottom: 3rem;
+        max-height: 30rem;
     }
 
     &__heading {

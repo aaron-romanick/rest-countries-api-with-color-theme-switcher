@@ -229,7 +229,6 @@ main {
     display: block;
     height: auto;
     margin: 0 auto;
-    max-height: 30rem;
     max-width: 100%;
 }
 

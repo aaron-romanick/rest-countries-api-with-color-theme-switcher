@@ -63,7 +63,9 @@ export default {
     }
 
     &__image {
+        height: 14.5rem;
         order: 1;
+        object-fit: cover;
     }
 
     &__heading {
