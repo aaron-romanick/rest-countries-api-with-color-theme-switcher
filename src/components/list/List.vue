@@ -4,10 +4,10 @@
         class="list"
     >
         <p
-            v-if="countries.length === 0"
+            v-if="isCountriesEmpty"
             class="list__empty"
         >
-            There are not countries that match these criteria.
+            There are no countries that match these criteria.
         </p>
         <Card
             v-for="(country, i) in countries"
@@ -15,27 +15,25 @@
             :code="country.alpha3Code"
             :ariaLabelledBy="`country-card-${i}`"
         >
+            <h2
+                class="card__heading"
+                :id="`country-card-${i}`"
+            >
+                {{ country.name }}
+            </h2>
             <img
                 alt="Columbian Flag"
                 class="card__image image"
                 :src="country.flag"
             >
-            <section>
-                <h2
-                    class="card__heading"
-                    :id="`country-card-${i}`"
-                >
-                    {{ country.name }}
-                </h2>
-                <dl class="card__description-list">
-                    <dt class="card__description-term">Population</dt>
-                    <dd class="card__description-details">{{ formatNumber(country.population) }}</dd>
-                    <dt class="card__description-term">Region</dt>
-                    <dd class="card__description-details">{{ country.region }}</dd>
-                    <dt class="card__description-term">Capital</dt>
-                    <dd class="card__description-details">{{ country.capital }}</dd>
-                </dl>
-            </section>
+            <dl class="card__description-list">
+                <dt class="card__description-term">Population</dt>
+                <dd class="card__description-details">{{ formatNumber(country.population) }}</dd>
+                <dt class="card__description-term">Region</dt>
+                <dd class="card__description-details">{{ valueOrNA(country.region) }}</dd>
+                <dt class="card__description-term">Capital</dt>
+                <dd class="card__description-details">{{ valueOrNA(country.capital) }}</dd>
+            </dl>
         </Card>
         <div
             ref="sentinel"
@@ -67,6 +65,7 @@ export default {
             resetListLimit,
             setCurrentRegion,
             setCurrentSearch,
+            valueOrNA,
         } = useStore()
         const {
             currentRegion,
@@ -90,6 +89,10 @@ export default {
                         })
                 })
                 .slice(0, limit.value - 1)
+        })
+
+        const isCountriesEmpty = computed(() => {
+            return limitedCountries.value.length === 0
         })
 
         watch([currentRegion, currentSearch], () => {
@@ -118,8 +121,10 @@ export default {
 
         return {
             countries: limitedCountries,
+            isCountriesEmpty,
             sentinel,
             formatNumber,
+            valueOrNA,
         }
     },
 }
