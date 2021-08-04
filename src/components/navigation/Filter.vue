@@ -24,6 +24,7 @@
                 class="filter__item"
                 :data-value="region"
                 href="#"
+                role="menuitem"
                 @click.prevent="setRegionFilter"
             >{{ region }}</a>
         </div>
@@ -181,7 +182,8 @@ export default {
         text-decoration: none;
         transition: background-color var(--transition-time), color var(--transition-time);
 
-        &:hover {
+        &:hover,
+        &:focus, {
             background-color: var(--filter__item--hover--background-color);
         }
     }
