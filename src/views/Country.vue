@@ -9,23 +9,23 @@
         <h2 class="details__heading">{{ name }}</h2>
         <dl class="details__description-list details__info-1">
             <dt class="details__description-term">Native Name</dt>
-            <dd class="details__description-details">{{ nativeName }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(nativeName) }}</dd>
             <dt class="details__description-term">Population</dt>
             <dd class="details__description-details">{{ formatNumber(population) }}</dd>
             <dt class="details__description-term">Region</dt>
-            <dd class="details__description-details">{{ region }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(region) }}</dd>
             <dt class="details__description-term">Sub Region</dt>
-            <dd class="details__description-details">{{ subregion }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(subregion) }}</dd>
             <dt class="details__description-term">Capital</dt>
-            <dd class="details__description-details">{{ capital }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(capital) }}</dd>
         </dl>
         <dl class="details__description-list details__info-2">
             <dt class="details__description-term">Top Level Domains</dt>
-            <dd class="details__description-details">{{ domains }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(domains) }}</dd>
             <dt class="details__description-term">Currencies</dt>
-            <dd class="details__description-details">{{ currencies }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(currencies) }}</dd>
             <dt class="details__description-term">Languages</dt>
-            <dd class="details__description-details">{{ languages }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(languages) }}</dd>
         </dl>
     </Details>
 </template>
@@ -46,6 +46,7 @@ export default {
         const {
             currentCountry,
             formatNumber,
+            valueOrNA,
         } = useStore()
 
         const {
@@ -92,6 +93,7 @@ export default {
             subregion,
 
             formatNumber,
+            valueOrNA,
         }
     }
 }

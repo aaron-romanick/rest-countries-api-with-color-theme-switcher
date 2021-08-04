@@ -157,6 +157,10 @@ export const createStore = () => {
         setModeIntoLocalStorage(state.isDarkMode)
     }
 
+    function valueOrNA(value) {
+        return value.trim() || 'N/A'
+    }
+
     return {
         state: readonly(state),
         currentCountry,
@@ -175,6 +179,7 @@ export const createStore = () => {
         setCurrentSearch,
         setModeToAgentPref,
         toggleDarkMode,
+        valueOrNA,
     }
 }
 
