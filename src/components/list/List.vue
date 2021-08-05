@@ -129,31 +129,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    justify-content: center;
-    margin-bottom: 4.5rem;
-
-    &__empty {
-        color: var(--list__empty--color);
-        margin-top: 3rem;
-        text-align: center;
-    }
-
-    &__sentinel {
-        flex-basis: 100%;
-        height: 1px;
-        width: 1px;
-    }
-
-    @media only screen and (min-width: 644px) {
-        & {
-            row-gap: 5rem;
-        }
-    }
-}
-</style>

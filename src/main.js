@@ -4,4 +4,4 @@ import App from './components/App.vue'
 
 createApp(App)
     .provide(storeSymbol, createStore())
-    .mount('main')
+    .mount('.whole-document')

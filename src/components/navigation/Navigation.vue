@@ -17,12 +17,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-.navigation {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-</style>
