@@ -35,7 +35,7 @@ Users should be able to:
 ### <a name="links"></a>Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/rest-countries-api-using-vue-3-composition-api-3tAb1MX1K](https://www.frontendmentor.io/solutions/rest-countries-api-using-vue-3-composition-api-3tAb1MX1K)
-- Live Site URL: [https://nisenihonjin.github.io/rest-countries-api-with-color-theme-switcher/](https://nisenihonjin.github.io/rest-countries-api-with-color-theme-switcher/)
+- Live Site URL: [https://aaron-romanick.github.io/rest-countries-api-with-color-theme-switcher/](https://aaron-romanick.github.io/rest-countries-api-with-color-theme-switcher/)
 
 ## <a name="my-process"></a>My Process
 
@@ -72,4 +72,4 @@ I want to get a further understanding of the workings of reactivity in Vue 3 usi
 ## <a name="author"></a>Author
 
 - Website - [Aaron Romanick](https://www.aaronromanick.com)
-- Frontend Mentor - [@nisenihonjin](https://www.frontendmentor.io/profile/nisenihonjin)
+- Frontend Mentor - [@aaron-romanick](https://www.frontendmentor.io/profile/aaron-romanick)
