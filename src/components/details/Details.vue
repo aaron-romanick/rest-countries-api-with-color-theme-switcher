@@ -20,7 +20,7 @@ import BorderCountriesList from './BorderCountriesList.vue'
 import BorderCountryLink from './BorderCountryLink.vue'
 
 export default {
-    name: 'Details',
+    name: 'BaseDetails',
     components: {
         BorderCountriesList,
         BorderCountryLink,

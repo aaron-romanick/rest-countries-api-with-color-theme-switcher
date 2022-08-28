@@ -37,7 +37,7 @@ import { useStore} from '@/store'
 import { onClickOutside } from '@vueuse/core'
 
 export default {
-    name: 'Filter',
+    name: 'NavigationFilter',
     setup() {
         const isExpanded = ref(false)
         const filter = ref(null)

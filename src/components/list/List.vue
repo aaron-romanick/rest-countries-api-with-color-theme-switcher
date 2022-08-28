@@ -50,7 +50,7 @@ import { useStore } from '@/store'
 import Card from './Card.vue'
 
 export default {
-    name: 'List',
+    name: 'BaseList',
     components: {
         Card,
     },

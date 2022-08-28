@@ -15,7 +15,7 @@
 import { useStore } from '@/store'
 
 export default {
-    name: 'Search',
+    name: 'NavigationSearch',
     setup() {
         const { setCurrentSearch } = useStore()
         const addFocusWithin = evt => {

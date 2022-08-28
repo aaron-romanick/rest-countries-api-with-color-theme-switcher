@@ -1,19 +1,19 @@
 <template>
     <nav class="navigation">
-        <Search />
-        <Filter />
+        <NavigationSearch />
+        <NavigationFilter />
     </nav>
 </template>
 
 <script>
-import Filter from './Filter.vue'
-import Search from './Search.vue'
+import NavigationFilter from './Filter.vue'
+import NavigationSearch from './Search.vue'
 
 export default {
-    name: 'Navigation',
+    name: 'BaseNavigation',
     components: {
-        Filter,
-        Search,
+        NavigationFilter,
+        NavigationSearch,
     },
 }
 </script>

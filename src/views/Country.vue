@@ -1,6 +1,6 @@
 <template>
     <ButtonBack />
-    <Details>
+    <BaseDetails>
         <img
             :alt="`Flag of ${name}`"
             class="details__image image"
@@ -27,20 +27,20 @@
             <dt class="details__description-term">Languages</dt>
             <dd class="details__description-details">{{ valueOrNA(languages) }}</dd>
         </dl>
-    </Details>
+    </BaseDetails>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { useStore } from '@/store'
 import ButtonBack from '@/components/buttons/ButtonBack.vue'
-import Details from '@/components/details/Details.vue'
+import BaseDetails from '@/components/details/Details.vue'
 
 export default {
-    name: 'Country',
+    name: 'ViewCountry',
     components: {
         ButtonBack,
-        Details,
+        BaseDetails,
     },
     setup() {
         const {

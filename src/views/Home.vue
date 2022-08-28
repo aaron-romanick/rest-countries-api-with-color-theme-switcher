@@ -8,7 +8,7 @@ import List from '@/components/list/List.vue'
 import Navigation from '@/components/navigation/Navigation.vue'
 
 export default {
-    name: 'Home',
+    name: 'ViewHome',
     components: {
         List,
         Navigation,

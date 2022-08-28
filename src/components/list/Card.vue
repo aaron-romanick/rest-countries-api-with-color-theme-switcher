@@ -17,7 +17,7 @@
 import { useStore } from '@/store'
 
 export default {
-    name: 'Card',
+    name: 'ListCard',
     props: {
         ariaLabelledBy: {
             type: String,
