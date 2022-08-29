@@ -12,20 +12,26 @@
         <Card
             v-for="(country, i) in countries"
             :key="i"
-            :code="country.alpha3Code"
+            :code="country.cca3"
             :ariaLabelledBy="`country-card-${i}`"
         >
             <h2
                 class="card__heading"
                 :id="`country-card-${i}`"
             >
-                {{ country.name }}
+                {{ country.name.common }}
             </h2>
-            <img
-                alt="Columbian Flag"
-                class="card__image image"
-                :src="country.flag"
-            >
+            <picture class="card__image">
+                <source
+                    :srcset="country.flags.svg"
+                    type="image/svg+xml"
+                >
+                <img
+                    :alt="`Flag of ${country.name.common}`"
+                    class="image"
+                    :src="country.flags.png"
+                >
+            </picture>
             <dl class="card__description-list">
                 <dt class="card__description-term">Population</dt>
                 <dd class="card__description-details">{{ formatNumber(country.population) }}</dd>
@@ -82,9 +88,9 @@ export default {
         
         const limitedCountries = computed(() => {
             return filteredByRegion.value
-                .filter(({ alpha3Code: byRegionCode }) => {
+                .filter(({ cca3: byRegionCode }) => {
                     return filteredBySearch.value
-                        .find(({ alpha3Code: bySearchCode }) => {
+                        .find(({ cca3: bySearchCode }) => {
                             return bySearchCode === byRegionCode
                         })
                 })

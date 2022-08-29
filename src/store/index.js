@@ -6,7 +6,7 @@ import Home from '@/views/Home.vue'
 const INITIAL_LIST_LIMIT = 20
 const LOCAL_STORAGE_KEY = 'restApiCountries_darkMode'
 
-const axiosInstance = axios.create({ baseURL: 'https://restcountries.eu/rest/v2' })
+const axiosInstance = axios.create({ baseURL: 'https://restcountries.com/v3.1' })
 
 const hasCountryDetails = ({ nativeName = null }) => {
     return nativeName !== null
@@ -32,8 +32,8 @@ export const createStore = () => {
 
     const currentCountry = computed(() => {
         return state.countries
-            .find(({ alpha3Code }) => {
-                return alpha3Code === state.currentCode
+            .find(({ cca3 }) => {
+                return cca3 === state.currentCode
             })
     })
 
@@ -55,7 +55,7 @@ export const createStore = () => {
         return state.currentSearch.trim() !== ''
             ? state.countries
                 .filter(({ name }) => {
-                    return pattern.test(name)
+                    return pattern.test(name.common)
                 })
             : state.countries
     })
@@ -70,9 +70,11 @@ export const createStore = () => {
 
     function getBorderCountries() {
         return state.countries
-            .filter(({ alpha3Code }) => {
-                return currentCountry.value
-                    .borders.includes(alpha3Code)
+            .filter(({ cca3 }) => {
+                return currentCountry.value.borders
+                    ? currentCountry.value
+                        .borders.includes(cca3)
+                    : false
             })
     }
 
@@ -83,14 +85,23 @@ export const createStore = () => {
     async function requestAllCountries () {
         state.isLoading = true
         const fields = [
-            'alpha3Code',
-            'flag',
+            'cca3',
+            'flags',
             'name',
             'population',
             'region',
             'capital',
         ]
-        const { data } = await axiosInstance.get(`/all?fields=${fields.join(';')}`)
+
+        // Checks if API is responsive; if not, gets data from local
+        let data = []
+        try {
+            ({ data } = await axiosInstance.get(`/all?fields=${fields.join(',')}`))
+        } catch(err) {
+            ({ data } = await axiosInstance.get(`/data/countries.json`, {
+                baseURL: process.env.BASE_URL,   
+            }))
+        }
         state.isLoading = false
         state.countries = data
     }
@@ -100,12 +111,24 @@ export const createStore = () => {
             const fields = [
                 'borders',
                 'currencies',
-                'topLevelDomain',
+                'tld',
                 'languages',
-                'nativeName',
                 'subregion',
             ]
-            const { data } = await axiosInstance.get(`/alpha/${state.currentCode.toLowerCase()}?fields=${fields.join(';')}`)
+
+            // Checks if API is responsive; if not, gets data from local
+            let data = []
+            try {
+                ({ data } = await axiosInstance.get(`/alpha/${state.currentCode.toLowerCase()}?fields=${fields.join(',')}`))
+            } catch(err) {
+                ({ data } = await axiosInstance.get(`/data/countries.json`, {
+                    baseURL: process.env.BASE_URL,   
+                }))
+                data = data.find(country => {
+                    return country.cca3.toLowerCase() === state.currentCode.toLowerCase()
+                })
+            }
+
             for(const prop in data) {
                 currentCountry.value[prop] = data[prop]
             }
@@ -158,7 +181,12 @@ export const createStore = () => {
     }
 
     function valueOrNA(value) {
-        return value.trim() || 'N/A'
+        if(Array.isArray(value)) {
+            value = value.join(', ')
+        }
+        return value
+            ? value.trim()
+            : 'N/A'
     }
 
     return {

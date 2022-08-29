@@ -574,9 +574,12 @@ main {
     }
 
     &__image {
-        height: 14.5rem;
         order: 1;
         object-fit: cover;
+
+        @media only screen and (min-width: 1279px) {
+            height: 14.5rem;
+        }
     }
 
     &__heading {
@@ -628,7 +631,7 @@ main {
     &__heading {
         font-size: var(--font-size-22);
         grid-area: heading;
-        margin-bottom: 1.25rem;
+        margin-block: 2.5rem 1.25rem;
     }
 
     &__info-1 {

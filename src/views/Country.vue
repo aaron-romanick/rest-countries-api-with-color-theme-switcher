@@ -1,15 +1,21 @@
 <template>
     <ButtonBack />
     <BaseDetails>
-        <img
-            :alt="`Flag of ${name}`"
-            class="details__image image"
-            :src="flag"
-        >
-        <h2 class="details__heading">{{ name }}</h2>
+        <picture class="card__image">
+            <source
+                :srcset="flags.svg"
+                type="image/svg+xml"
+            >
+            <img
+                :alt="`Flag of ${commonName}`"
+                class="image"
+                :src="flags.png"
+            >
+        </picture>
+        <h2 class="details__heading">{{ commonName }}</h2>
         <dl class="details__description-list details__info-1">
             <dt class="details__description-term">Native Name</dt>
-            <dd class="details__description-details">{{ valueOrNA(nativeName) }}</dd>
+            <dd class="details__description-details">{{ valueOrNA(nativeNames) }}</dd>
             <dt class="details__description-term">Population</dt>
             <dd class="details__description-details">{{ formatNumber(population) }}</dd>
             <dt class="details__description-term">Region</dt>
@@ -52,20 +58,20 @@ export default {
         const {
             capital,
             currencies: rawCurrencies,
-            topLevelDomain: rawTopLevelDomains,
-            flag,
+            tld: rawTopLevelDomains,
+            flags,
             languages: rawLanguages,
-            name,
-            nativeName,
+            name: rawNames,
             population,
             region,
             subregion,
         } = currentCountry.value
 
         const currencies = computed(() => {
-            return rawCurrencies.map(({ name, symbol }) => `${name} (${symbol})`)
-                .sort()
-                .join(', ')
+            return Object.values(rawCurrencies)
+                .map(currency => `${currency.name} (${currency.symbol})`)
+                    .sort()
+                    .join(', ')
         })
 
         const domains = computed(() => {
@@ -75,19 +81,30 @@ export default {
         })
 
         const languages = computed(() => {
-            return rawLanguages.map(({ name }) => name)
+            return Object.values(rawLanguages)
                 .sort()
                 .join(', ')
+        })
+
+        const commonName = computed(() => {
+            return rawNames.common
+        })
+
+        const nativeNames = computed(() => {
+            return Object.values(rawNames.nativeName)
+                .map(nativeName => nativeName.common)
+                    .sort()
+                    .join(', ')
         })
 
         return {
             capital,
             currencies,
             domains,
-            flag,
+            flags,
             languages,
-            name,
-            nativeName,
+            commonName,
+            nativeNames,
             population,
             region,
             subregion,

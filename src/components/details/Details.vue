@@ -5,10 +5,10 @@
             <BorderCountryLink
                 v-for="(border, i) in borders"
                 :key="i"
-                :code="border.alpha3Code"
-                :title="border.name"
+                :code="border.cca3"
+                :title="border.name.common"
             >
-                {{ border.name }}
+                {{ border.name.common }}
             </BorderCountryLink>
         </BorderCountriesList>
     </section>
