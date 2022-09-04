@@ -30,7 +30,7 @@ Users should be able to:
 
 ### <a name="screenshot"></a>Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
 ### <a name="links"></a>Links
 
